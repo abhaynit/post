@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-t$fc3zfribe!267v1lfil%2$_9a83-k%5+-@u7ymqkze0^6b^-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['kumar-aman.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','kumar-aman.herokuapp.com']
 
 
 # Application definition
@@ -81,10 +81,15 @@ DATABASES = {
        'NAME': 'postgres',
        'USER': 'postgres',
        'PASSWORD': 'abhay',
-       'HOST': 'kumar-aman.herokuapp.com',
-       #'PORT': '5432',
+       'HOST': 'localhost',
+       'PORT': '5432',
    }
 }
+
+import dj_database_url
+
+db_from_env = dj_database_url.config(conn_max_age = 600)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
