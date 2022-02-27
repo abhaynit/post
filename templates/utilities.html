@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Filter{% endblock %}
+
+{% block body %}
+
+
+<div class="container">
+    <div class="text-center alert alert-success"><h2><b>PRIVATE IMAGE</b></h2></div>
+    <div class="row">               
+        {% for it in image  %}
+        <div class="col-sm-3 mt-4 ">
+            <div class="card br-warning" style="width: 16.6rem;">
+                <img src="{{it.im.url}}" class="card-img-top abd" >
+            </div>
+        </div> 
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

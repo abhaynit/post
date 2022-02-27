@@ -1,0 +1,1 @@
+web: gunicorn bhaiya.wsgi --log-file -

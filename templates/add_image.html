@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{nam}}{% endblock %}
+
+{% block body %}
+
+<br><br>
+  
+
+<div class="container">
+
+    <div class="py-3  bg-secondary text-white">
+        
+        <h1 class="mb-3 text-center text-info" ><b>BIRTHDAY BOY IMAGES</b></h1>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-warning" type="button"><a href="{% url 'private' %}"><b>PRIVATE IMAGE</b></a></button>
+            <button class="btn btn-info" type="button"><a href="{% url 'celebration' %}"><b>CLICK HERE</b></a></button>
+          </div>
+    <form align = "center" action="" method="POST" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        {% for fm in form %}
+            {{fm.label_tag}}
+            {{fm}}
+        {% endfor %}
+        <input type="submit" class = "btn btn-danger" value="UPLOAD">
+    </form>
+    
+</div>
+
+</div>
+
+<div class="container">
+<hr>
+<div class="text-center alert alert-success"><h2><b>MEMORIES</b></h2></div>
+<hr>
+<div class="owl-carousel owl-theme">
+  {% for fm in image %}
+  <div class="item text-center"><img src="{{fm.im.url}}" class="img-thumbnail rounded" width="200px" height="200px"> </div>
+  
+  {% endfor %}
+  
+  
+</div>
+<br>
+<hr>
+</div>
+
+<div class="container">
+    <div class="row">               
+        {% for it in image  %}
+        <div class="col-sm-3 mt-4 text-center">
+            <div class="card br-warning text-center" style="width: 16.6rem;">
+                <img src="{{it.im.url}}" class="card-img-top img-thumbnail rounded center" >
+            </div>
+        </div> 
+        {% endfor %}
+    </div>
+</div>
+<br><br>
+
+
+{% endblock %}
