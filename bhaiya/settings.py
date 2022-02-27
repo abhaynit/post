@@ -82,7 +82,7 @@ DATABASES = {
        'USER': 'postgres',
        'PASSWORD': 'abhay',
        'HOST': 'kumar-aman.herokuapp.com',
-       'PORT': '5432',
+       #'PORT': '5432',
    }
 }
 
